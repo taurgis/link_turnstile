@@ -22,10 +22,27 @@ plugin_turnstile:int_turnstile:app_storefront_base
     "base": "../storefront-reference-architecture/cartridges/app_storefront_base/"
 }
 ```
-4. In the top-level link_turnstile folder, enter the following command: `npm run compile:js && npm run compile:scss`
+4. In the top-level link_turnstile folder, enter the following command: `npm run compile:js`
 5. In the top-level link_turnstile folder, enter the following command: `npm run uploadCartridge`
 
 For information on Getting Started with SFRA, see [Get Started with SFRA](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fsfra%2Fb2c_sfra_setup.html).
+
+#Metadata
+
+## Services
+To contact Cloudflare Turnstile it is required to configure a service. A file containing the required
+configuration can be imported in the business manager. The file is located here `metadata/services.xml`.
+
+### Set the password (secret key)
+The password for the service needs to be set manually in the Business Manager, this is the secret key. The secret key will be provisioned alongside the sitekey when you create a widget.
+
+![](/Users/thomastheunen/SynologyDrive/Documents/Werk/FORWARD/Internal/B2C/link_turnstile/docs/turnstile-service-pw.jpg)
+
+## Site Preferences
+A few preferences are added to the `Site Preferences` system object. The file `metadata/site-preferences.xml` can be
+imported as a System Object Type in the business manager.
+
+In the import file you can replace the siteKey attribute with your own Site Key which you received when provisioning the widget.
 
 # NPM scripts
 Use the provided NPM scripts to compile and upload changes to your sandbox.
