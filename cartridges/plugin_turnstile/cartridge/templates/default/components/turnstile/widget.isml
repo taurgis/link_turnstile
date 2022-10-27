@@ -1,8 +1,8 @@
  <isif condition="${!empty(pdict.turnstileSiteKey)}">
-    <div 
-        id="ts-${pdict.action}" 
-        class="cf-turnstile" 
-        data-sitekey="${pdict.sitekey}" 
+    <div
+        id="ts-${pdict.action}"
+        class="cf-turnstile"
+        data-sitekey="${pdict.sitekey}"
         data-action="${pdict.action}"
         data-cdata="${session.getCustomer().getID()}">
     </div>

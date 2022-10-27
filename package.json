@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "sgmf-scripts --test test/unit/**/*.js",
-    "lint": "sgmf-scripts --lint js",
+    "lint": "sgmf-scripts --lint js && npm run lint:isml",
     "upload": "sgmf-scripts --upload -- ",
     "uploadCartridge": "sgmf-scripts --uploadCartridge plugin_turnstile && sgmf-scripts --uploadCartridge int_turnstile",
-    "lint:isml": "./node_modules/.bin/isml-linter",
-    "build:isml": "./node_modules/.bin/isml-linter --build",
-    "fix:isml": "./node_modules/.bin/isml-linter --autofix",
+    "lint:isml": "isml-linter",
+    "build:isml": "isml-linter --build",
+    "fix:isml": "isml-linter --autofix",
     "compile:js": "sgmf-scripts --compile js",
     "watch": "sgmf-scripts --watch",
     "prepare": "husky install"
