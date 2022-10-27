@@ -17,6 +17,7 @@
   },
   "globals": {
     "request": true,
+    "session": true,
     "empty": true
   }
 }

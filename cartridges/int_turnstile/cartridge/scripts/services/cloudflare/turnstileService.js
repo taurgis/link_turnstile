@@ -26,7 +26,16 @@ function createVerificationService() {
             if (client.statusCode === 200) {
                 var response = JSON.parse(client.text);
 
-                return response.success;
+                /**
+                 * Check that the Customer ID in the session matches the one from Turnstile
+                 * as an extra security check.
+                 *
+                 * Note: This can be expanded with your own logic by modifying the template
+                 * "components/turnstile/widget.isml" and matching the logic here.
+                 */
+                if (response.cdata === session.getCustomer().getID()) {
+                    return response.success;
+                }
             }
 
             return false;

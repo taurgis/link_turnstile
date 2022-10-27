@@ -1,0 +1,10 @@
+<ismodule template="/components/content/contentAsset"
+    name="contentasset"
+    attribute="aid"
+/>
+
+<ismodule template="/components/turnstile/widget"
+    name="turnstilewidget"
+    attribute="sitekey"
+    attribute="action"
+/>

@@ -1,3 +1,5 @@
+<isinclude template="components/modules" />
+
 <form action="${pdict.actionUrl}" class="login" method="POST" name="login-form">
     <div class="form-group required">
         <label class="form-control-label" for="login-form-email">
@@ -43,10 +45,6 @@
     </div>
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
-    <isif condition="${!empty(pdict.turnstileSiteKey)}">
-        <div id="ts-login" class="cf-turnstile" data-sitekey="${pdict.turnstileSiteKey}" data-action="login"></div>
-    <iselse/>
-        <div class="alert alert-danger">ERROR: Site Key is not configured for Turnstile!<br/>(Site Preferences)</div>
-    </isif>
+    <isturnstilewidget action="login" sitekey="${pdict.turnstileSiteKey}" />
     <button type="submit" class="btn btn-block btn-primary">${Resource.msg('button.text.loginform', 'login', null)}</button>
 </form>
