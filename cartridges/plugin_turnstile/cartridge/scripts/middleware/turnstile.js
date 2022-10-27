@@ -1,50 +1,52 @@
 'use strict';
 
+var { validate } = require('*/cartridge/scripts/helpers/turnstile');
+var { logoutCustomer } = require('dw/customer/CustomerMgr');
+var { url } = require('dw/web/URLUtils');
+
 /**
- * Verifies a Turnstile token
+ * Verifies a Turnstile token.
+ *
  * @param {Object} req - Request object
  * @param {Object} res - Response object
  * @param {Function} next - Next call in the middleware chain
  * @returns {void}
  */
-function validate(req, res, next) {
-    var turnstileHelper = require('*/cartridge/scripts/helpers/turnstile');
-    var CustomerMgr = require('dw/customer/CustomerMgr');
-    var URLUtils = require('dw/web/URLUtils');
-
+function validateResponse(req, res, next) {
     var token = req.form['cf-turnstile-response'] || req.querystring['cf-turnstile-response'];
-    var verificationResult = turnstileHelper.validate(token);
+    var verificationResult = validate(token);
 
     if (!verificationResult) {
-        CustomerMgr.logoutCustomer(false);
-        res.redirect(URLUtils.url('CSRF-Fail'));
+        logoutCustomer(false);
+
+        res.redirect(url('CSRF-Fail'));
     }
 
     next();
 }
 
 /**
- * Verifies a Turnstile token
+ * Verifies a Turnstile token for Ajax requests.
+ *
  * @param {Object} req - Request object
  * @param {Object} res - Response object
  * @param {Function} next - Next call in the middleware chain
  * @returns {void}
  */
-function validateAjax(req, res, next) {
-    var turnstileHelper = require('*/cartridge/scripts/helpers/turnstile');
-    var CustomerMgr = require('dw/customer/CustomerMgr');
-    var URLUtils = require('dw/web/URLUtils');
-
+function validateResponseAjax(req, res, next) {
     var token = req.form['cf-turnstile-response'] || req.querystring['cf-turnstile-response'];
-    var verificationResult = turnstileHelper.validate(token);
+    var verificationResult = validate(token);
 
     if (!verificationResult) {
-        CustomerMgr.logoutCustomer(false);
-        res.redirect(URLUtils.url('CSRF-AjaxFail'));
+        logoutCustomer(false);
+
+        res.redirect(url('CSRF-AjaxFail'));
     }
 
     next();
 }
 
-module.exports.validate = validate;
-module.exports.validateAjax = validateAjax;
+module.exports = {
+    validateResponse: validateResponse,
+    validateResponseAjax: validateResponseAjax
+};

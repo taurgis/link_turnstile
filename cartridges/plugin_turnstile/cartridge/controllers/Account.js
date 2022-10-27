@@ -21,7 +21,7 @@ server.extend(module.superModule);
  * @param {returns} - json
  * @param {serverfunction} - post
  */
-server.prepend('Login', turnstile.validateAjax);
+server.prepend('Login', turnstile.validateResponseAjax);
 
 /**
  * Account-SubmitRegistration : Add Turnstile token validation. (Ajax)
@@ -43,6 +43,6 @@ server.prepend('Login', turnstile.validateAjax);
  * @param {returns} - json
  * @param {serverfunction} - post
  */
-server.prepend('SubmitRegistration', turnstile.validateAjax);
+server.prepend('SubmitRegistration', turnstile.validateResponseAjax);
 
 module.exports = server.exports();

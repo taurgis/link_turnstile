@@ -7,7 +7,7 @@
  * @return {string} The body string
  */
 function toRequestBody(param) {
-    var Encoding = require('dw/crypto/Encoding');
+    var { toURI } = require('dw/crypto/Encoding');
     var CONSTANTS = require('*/cartridge/scripts/util/constants');
 
     var body = [];
@@ -18,7 +18,7 @@ function toRequestBody(param) {
                 body.push(
                     [
                         key + '[' + n + ']',
-                        Encoding.toURI(arrayParam, CONSTANTS.CHARSET)
+                        toURI(arrayParam, CONSTANTS.CHARSET)
                     ].join('=')
                 );
 
@@ -26,11 +26,11 @@ function toRequestBody(param) {
             });
         } else {
             var paramValue = param[key] === null ? '' : param[key];
-            var encodedParamValue = Encoding.toURI(paramValue, CONSTANTS.CHARSET);
+            var encodedParamValue = toURI(paramValue, CONSTANTS.CHARSET);
 
             body.push(
                 [
-                    Encoding.toURI(key, CONSTANTS.CHARSET),
+                    toURI(key, CONSTANTS.CHARSET),
                     encodedParamValue
                 ].join('=')
             );
