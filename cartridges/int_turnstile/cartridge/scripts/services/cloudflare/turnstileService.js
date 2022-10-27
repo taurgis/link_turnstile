@@ -1,10 +1,5 @@
 'use strict';
 
-const ALLOWED_ACTIONS = [
-    'account_login',
-    'account_register'
-];
-
 /**
  * Creates the local service to send a verification request
  *
@@ -18,12 +13,10 @@ function createVerificationService() {
             var formHelper = require('../../helpers/form');
             var serviceCredentials = svc.getConfiguration().getCredential();
             var modifiedParameters = parameters;
-
-            svc.setRequestMethod('POST');
-            svc.addHeader('content-type', 'application/json');
+            svc.addHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             modifiedParameters.secret = serviceCredentials.getPassword();
-            modifiedParameters.remoteip = request.getHttpHeaders().get('CF-Connecting-IP');
+            modifiedParameters.remoteip = request.getHttpRemoteAddress();
 
             return formHelper.toRequestBody(modifiedParameters);
         },
@@ -31,7 +24,7 @@ function createVerificationService() {
             if (client.statusCode === 200) {
                 var response = JSON.parse(client.text);
 
-                return response.success && (ALLOWED_ACTIONS.indexOf(response.action) >= 0);
+                return response.success;
             }
 
             return false;
@@ -41,8 +34,7 @@ function createVerificationService() {
                 statusCode: 200,
                 statusMessage: 'Success',
                 text: JSON.stringify({
-                    success: true,
-                    action: 'account_register'
+                    success: true
                 })
             };
         }

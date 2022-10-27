@@ -19,12 +19,12 @@
     <service service-id="Cloudflare.Turnstile">
         <service-type>HTTPForm</service-type>
         <enabled>true</enabled>
-        <log-prefix>sentry</log-prefix>
+        <log-prefix>turnstile</log-prefix>
         <comm-log-enabled>false</comm-log-enabled>
         <force-prd-enabled>true</force-prd-enabled>
         <mock-mode-enabled>false</mock-mode-enabled>
-        <profile-id>Sentry</profile-id>
-        <credential-id>Sentry</credential-id>
+        <profile-id>Cloudflare</profile-id>
+        <credential-id>Turnstile</credential-id>
     </service>
 
 </services>
