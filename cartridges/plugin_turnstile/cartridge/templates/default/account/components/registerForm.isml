@@ -133,7 +133,12 @@
     </div>
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
-    <div id="ts-register" class="cf-turnstile" data-sitekey="0x4AAAAAAABA3sb82JhDlJB1" data-action="register"></div>
+
+    <isif condition="${!empty(pdict.turnstileSiteKey)}">
+        <div id="ts-register" class="cf-turnstile" data-sitekey="${pdict.turnstileSiteKey}" data-action="register"></div>
+    <iselse/>
+        <div class="alert alert-danger">ERROR: Site Key is not configured for Turnstile!<br />(Site Preferences)</div>
+    </isif>
 
     <button type="submit" class="btn btn-block btn-primary">
         ${Resource.msg('button.createaccount.registration', 'registration', null)}
