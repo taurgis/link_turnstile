@@ -28,7 +28,7 @@ plugin_turnstile:int_turnstile:app_storefront_base
 
 For information on Getting Started with SFRA, see [Get Started with SFRA](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fsfra%2Fb2c_sfra_setup.html).
 
-#Metadata
+# Metadata
 
 ## Services
 To contact Cloudflare Turnstile it is required to configure a service. A file containing the required
