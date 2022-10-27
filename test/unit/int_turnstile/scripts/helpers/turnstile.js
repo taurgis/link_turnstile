@@ -32,5 +32,10 @@ describe('turnstileHelper', function () {
             resultMock = false;
             assert.equal(turnstileHelper.validate('token'), false);
         });
+
+        it('should validate an empty token', function () {
+            resultMock = false;
+            assert.equal(turnstileHelper.validate('token'), false);
+        });
     });
 });

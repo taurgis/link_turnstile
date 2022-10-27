@@ -36,10 +36,10 @@ configuration can be imported in the business manager. The file is located here 
 ### Set the password (secret key)
 The password for the service needs to be set manually in the Business Manager, this is the secret key. The secret key will be provisioned alongside the sitekey when you create a widget.
 
-![](/Users/thomastheunen/SynologyDrive/Documents/Werk/FORWARD/Internal/B2C/link_turnstile/docs/turnstile-service-pw.jpg)
+![](/docs/turnstile-service-pw.jpg)
 
 ## Site Preferences
-A few preferences are added to the `Site Preferences` system object. The file `metadata/site-preferences.xml` can be
+A new preference is added to the `Site Preferences` system object. The file `metadata/site-preferences.xml` can be
 imported as a System Object Type in the business manager.
 
 In the import file you can replace the siteKey attribute with your own Site Key which you received when provisioning the widget.
