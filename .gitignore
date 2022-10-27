@@ -1,0 +1,6 @@
+dw.json
+connections-source.json
+.idea/
+node_modules/
+!cartridges/plugin_filternavigation/**/static/**/js
+package-lock.json
