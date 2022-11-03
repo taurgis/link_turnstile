@@ -2,6 +2,7 @@
     <div
         id="ts-${pdict.action}"
         class="cf-turnstile"
+        data-theme="light"
         data-sitekey="${pdict.sitekey}"
         data-action="${pdict.action}"
         data-cdata="${session.getCustomer().getID()}">
