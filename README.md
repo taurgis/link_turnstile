@@ -1,5 +1,7 @@
 # link_turnstile: Storefront Reference Architecture (SFRA)
 [![CI](https://github.com/taurgis/link_turnstile/actions/workflows/build-test.yml/badge.svg)](https://github.com/taurgis/link_turnstile/actions/workflows/build-test.yml)
+[![codecov](https://codecov.io/gh/taurgis/link_turnstile/branch/main/graph/badge.svg?token=K6P22BDFT8)](https://codecov.io/gh/taurgis/link_turnstile)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This is the repository for the link_turnstile plugin. 
 
