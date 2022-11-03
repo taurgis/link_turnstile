@@ -22,3 +22,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run lint
+      - run: npm run test
+      - run: npm run test:report
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          directory: "./coverage/"
+          fail_ci_if_error: true
+          verbose: true
