@@ -8,11 +8,31 @@ This is the repository for the link_turnstile plugin.
 # Demo
 ![](docs/login.jpg)
 
-# Cartridge Path Considerations
+# SFRA
+
+## Cartridge Path Considerations
 The link_turnstile plugin requires the app\_storefront\_base cartridge. In your cartridge path, include the cartridges in the following order:
 
 ```
 plugin_turnstile:int_turnstile:app_storefront_base
+```
+
+# Composable Storefront / Headless Applications
+
+## Enable SCAPI Hooks
+By default hooks are not enabled for SCAPI. To enable this feature go to
+
+```
+Administration > Global Preferences > Feature Switches
+```
+
+![](docs/scapi-hooks.jpg)
+
+## Cartridge Path Considerations
+In your cartridge path, include the cartridges in the following order:
+
+```
+api_turnstile:int_turnstile
 ```
 
 # Getting Started

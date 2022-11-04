@@ -8,7 +8,7 @@
     "test:report": "nyc report --reporter=json",
     "lint": "sgmf-scripts --lint js && npm run lint:isml",
     "upload": "sgmf-scripts --upload -- ",
-    "uploadCartridge": "sgmf-scripts --uploadCartridge plugin_turnstile && sgmf-scripts --uploadCartridge int_turnstile",
+    "uploadCartridge": "sgmf-scripts --uploadCartridge plugin_turnstile && sgmf-scripts --uploadCartridge int_turnstile && sgmf-scripts --uploadCartridge api_turnstile",
     "lint:isml": "isml-linter",
     "build:isml": "isml-linter --build",
     "fix:isml": "isml-linter --autofix",
