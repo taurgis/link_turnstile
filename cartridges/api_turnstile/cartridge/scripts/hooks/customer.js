@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable consistent-return */
+
 /**
  * Add Turnstile validation to the SCAPI customer registration.
  *
@@ -28,6 +30,4 @@ exports.beforePOST = function beforePOST(registration) {
             return new Status(Status.ERROR, 'ERR-TS-03', e.message);
         }
     }
-
-    return new Status(Status.OK);
 };
